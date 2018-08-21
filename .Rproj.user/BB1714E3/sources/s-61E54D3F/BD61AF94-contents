@@ -1,0 +1,14 @@
+library(tibble)
+library(httr)
+library(rvest)
+library(dplyr)
+library(ggplot2)
+
+
+cdg_url <- sprintf('https://www.nagumo.com.br/mercearia/alimentos-basicos/arroz?PS=32')
+
+cdg_html <- cdg_url %>%
+  httr::GET() %>%
+  httr::content('text', encoding = 'latin1') %>%
+  xml2::read_html() %>%
+  rvest::html_node('table')

@@ -1,0 +1,4 @@
+library(tesseract)
+languageMethod <- tesseract("por")
+text <- tesseract::ocr("https://lojas.dia.com.br/cache/ofertas/1641/t10-clubdia-89685.png", engine = languageMethod)
+cat(text)
